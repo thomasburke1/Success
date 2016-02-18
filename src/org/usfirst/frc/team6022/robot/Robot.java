@@ -6,7 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6022.robot.commands.DriveWithJoystick;
+import org.usfirst.frc.team6022.robot.limit.Limit;
+import org.usfirst.frc.team6022.robot.subsystems.Arm;
 import org.usfirst.frc.team6022.robot.subsystems.DriveTrain;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -19,17 +22,20 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
+	public static Arm arm; 
 	public static DriveTrain driveTrain;
 	public static OI oi;
-
-    Command autonomousCommand;
+	public static Limit limit;
+	Command autonomousCommand;
     SendableChooser chooser;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    public void robotInit() {
+    public void robotInit() 
+    {
+    	//Initialize subsystems
 		oi = new OI();
 		driveTrain=new DriveTrain();
         chooser = new SendableChooser();
