@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public void driveWithJoystick (Joystick joystick){
-		drive.arcadeDrive(joystick);
+		drive.arcadeDrive(joystick.getY(),Math.abs(joystick.getTwist())*(-joystick.getTwist()));
 	}
 	
 	public void DriveForward(double inputSpeed)
@@ -43,4 +43,3 @@ public class DriveTrain extends Subsystem {
 		drive.arcadeDrive(0,0);
 	}
 }
-

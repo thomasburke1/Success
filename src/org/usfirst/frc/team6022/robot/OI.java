@@ -9,9 +9,22 @@ import edu.wpi.first.wpilibj.Joystick;
 public class OI {
 
     final Joystick joystick = new Joystick(0);
+    
+    final Joystick joystick1 = new Joystick(1);
+    
+    public OI() {
+    	
+    }
+    
 	public Joystick getJoystick()
 	{
 		return joystick;
 	}
+	
+	public Joystick getJoystick1()
+	{
+		return joystick1;
+	}
+	
     // Button button = new JoystickButton(stick, buttonNumber);
 }
