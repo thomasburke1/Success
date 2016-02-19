@@ -13,7 +13,7 @@ public class OI {
     final Joystick joystick1 = new Joystick(1);
     
     public OI() {
-    	
+    	//button.whenPressed(new )
     }
     
 	public Joystick getJoystick()
