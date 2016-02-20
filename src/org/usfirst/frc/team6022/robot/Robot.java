@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team6022.robot.commands.DriveWithJoystick;
-import org.usfirst.frc.team6022.robot.limit.Limit;
 import org.usfirst.frc.team6022.robot.subsystems.Arm;
 import org.usfirst.frc.team6022.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6022.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -24,8 +24,8 @@ public class Robot extends IterativeRobot {
 
 	public static Arm arm; 
 	public static DriveTrain driveTrain;
+	public static Pneumatics pneumatics;
 	public static OI oi;
-	public static Limit limit;
 	Command autonomousCommand;
     SendableChooser chooser;
 
@@ -36,8 +36,10 @@ public class Robot extends IterativeRobot {
     public void robotInit() 
     {
     	//Initialize subsystems
-		oi = new OI();
+    	arm = new Arm();
 		driveTrain=new DriveTrain();
+		pneumatics = new Pneumatics();
+		oi = new OI();
         chooser = new SendableChooser();
         chooser.addDefault("Default Auto", new DriveWithJoystick());
 //        chooser.addObject("My Auto", new MyAutoCommand());
